@@ -436,19 +436,6 @@ Below are the key metrics from `results.csv` showing model progression:
 - **Temporal smoothing** — require weapon detection in 3 of 5 consecutive frames before triggering an alert, eliminating single-frame false positives
 
 ---
-
-## 15. Troubleshooting
-
-| Error | Cause | Fix |
-|-------|-------|-----|
-| `ModuleNotFoundError` | Missing dependency | Run `pip install -r requirements.txt` |
-| `Custom model not found` | Wrong path in detect.py | Verify `runs/detect/weapon_detection_model7/weights/best.pt` exists |
-| `Could not open video source '0'` | Webcam in use by another app | Close other camera apps; try `--source 1` |
-| `CUDA out of memory` | Batch too large for GPU | Reduce `batch=16` to `batch=8` in train.py |
-| `WARNING: no labels found` | Wrong directory structure | Verify `labels/train/` and `labels/val/` exist and match image paths in `data.yaml` |
-| Low FPS in detect.py | Running on CPU | Change `device='cpu'` to `device='0'` in train.py; ensure CUDA 12.1 installed |
-| Model detects smartphones as weapons | `custom_classes` list mismatch | Ensure `custom_classes` in detect.py matches the class names in `data.yaml` |
-
 ---
 
 ## Acknowledgements
